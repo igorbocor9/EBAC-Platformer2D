@@ -979,6 +979,7 @@ MonoBehaviour:
   mRigidbody: {fileID: 1711591631}
   friction: {x: -0.1, y: 0}
   speed: 10
+  speedRun: 15
   jumpForce: 15
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
