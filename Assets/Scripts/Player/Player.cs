@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
         {
             isJumping = true;
             mRigidbody.linearVelocity = Vector2.up * jumpForce;
-            mRigidbody.transform.LocalScale = Vector2.one;
+            mRigidbody.transform.localScale = Vector2.one;
             DOTween.Kill(mRigidbody.transform);
             HandleScaleJump();
         }

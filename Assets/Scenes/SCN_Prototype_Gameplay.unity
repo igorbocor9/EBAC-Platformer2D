@@ -949,6 +949,7 @@ GameObject:
   - component: {fileID: 1690794424}
   - component: {fileID: 1690794423}
   - component: {fileID: 1690794422}
+  - component: {fileID: 1690794426}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -982,7 +983,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &1690794423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1013,7 +1014,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1103,6 +1104,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1690794426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690794421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2243530111dffb24fa368096041d1a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
+  damage: 10
 --- !u!1 &1711591630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,6 +1130,7 @@ GameObject:
   - component: {fileID: 1711591632}
   - component: {fileID: 1711591631}
   - component: {fileID: 1711591635}
+  - component: {fileID: 1711591636}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1287,6 +1302,26 @@ MonoBehaviour:
   speed: 10
   speedRun: 15
   jumpForce: 15
+  jumpScaley: 1.5
+  jumpScalex: 0.7
+  animationDuration: 0.3
+  ease: 27
+  isJumping: 0
+--- !u!114 &1711591636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711591630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca10fb508dc3689488ae083851ed0d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthBase
+  startLife: 10
+  destroyOnKill: 1
+  delayToKill: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
