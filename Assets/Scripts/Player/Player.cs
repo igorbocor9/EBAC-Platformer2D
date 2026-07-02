@@ -19,7 +19,11 @@ public class Player : MonoBehaviour
     public float jumpScalex = .7f;
     public float animationDuration = 0.3f;
     public Ease ease = Ease.OutBack;
-    public bool isJumping = false;
+
+    [Header("Animation player")]
+    public string boolrun = "Run";
+    public Animator animator;
+    public float playerSwipeDuration = .1f;
 
     private void Update()
     {
@@ -33,19 +37,35 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftControl))
         {
             _currentSpeed = speedRun;
+            animator.speed = 2;
         }
         else
         {
             _currentSpeed = speed;
+            animator.speed = 1;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             mRigidbody.linearVelocity = new Vector2(-_currentSpeed, mRigidbody.linearVelocity.y);
+            if (mRigidbody.transform.localScale.x != -1)
+            {
+                mRigidbody.transform.DOScaleX(-1, playerSwipeDuration);
+            }
+            animator.SetBool(boolrun, true);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             mRigidbody.linearVelocity = new Vector2(_currentSpeed, mRigidbody.linearVelocity.y);
+            if (mRigidbody.transform.localScale.x != 1)
+            {
+                mRigidbody.transform.DOScaleX(1, playerSwipeDuration);
+            }
+            animator.SetBool(boolrun, true);
+        }
+        else
+        {
+            animator.SetBool(boolrun, false);
         }
 
         if (mRigidbody.linearVelocity.x > 0)
@@ -62,7 +82,6 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            isJumping = true;
             mRigidbody.linearVelocity = Vector2.up * jumpForce;
             mRigidbody.transform.localScale = Vector2.one;
             DOTween.Kill(mRigidbody.transform);
