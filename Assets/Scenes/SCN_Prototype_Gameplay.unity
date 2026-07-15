@@ -1916,6 +1916,7 @@ GameObject:
   - component: {fileID: 605742423}
   - component: {fileID: 605742425}
   - component: {fileID: 605742424}
+  - component: {fileID: 605742426}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2042,6 +2043,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605742422}
   m_CullTransparentMesh: 1
+--- !u!114 &605742426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605742422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ffba5bef691f248870d20e19aca833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOUIIntUpdate
+  soInt: {fileID: 11400000, guid: 7c9a3643bacaab743afb54b1a4299c29, type: 2}
+  uiText: {fileID: 605742424}
 --- !u!1 &606289189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2915,7 +2930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3684e5df1b273940bd6c54cbfc55c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemManager
-  coins: 0
+  coins: {fileID: 11400000, guid: 7c9a3643bacaab743afb54b1a4299c29, type: 2}
   uiTextCoins: {fileID: 605742424}
 --- !u!4 &892468844
 Transform:
@@ -2962,6 +2977,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 892468844}
+  - {fileID: 1130505044}
   m_Father: {fileID: 1170093279}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &920104452
@@ -3329,6 +3345,51 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4546307769011690981, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
   m_PrefabInstance: {fileID: 1514399890}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1130505043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1130505044}
+  - component: {fileID: 1130505045}
+  m_Layer: 0
+  m_Name: UIInGameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1130505044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130505043}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 914184555}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1130505045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130505043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde043531ed641a49953867ca1e2fda8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIInGameManager
+  uiTextCoins: {fileID: 605742424}
 --- !u!212 &1145854393 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 8622257899716607877, guid: 3de838754c767a446a5473969062a84e, type: 3}
