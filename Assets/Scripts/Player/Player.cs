@@ -8,28 +8,12 @@ public class Player : MonoBehaviour
     public Rigidbody2D mRigidbody;
     public HealthBase _healthBase;
 
-    [Header("Speed Setup")]
-    public Vector2 friction = new Vector2(.1f, 0);
-    public float speed;
-    public float speedRun;
+    [Header("Setup")]
+    public SOPlayerSetup soPlayerSetup;
+
     private float _currentSpeed;
-    public float jumpForce = 2;
 
-    [Header("Animation Setup")]
-    public SOFloat jumpScaleY;
-    public SOFloat jumpScaleX;
-    public SOFloat soAnimationDuration;
-
-
-    public Ease ease = Ease.OutBack;
-
-    [Header("Animation player")]
-    public string boolrun = "Run";
-    public string triggerDeath = "Death";
     public Animator animator;
-    public float playerSwipeDuration = .1f;
-
-    
 
     private void Awake()
     {;
@@ -43,7 +27,7 @@ public class Player : MonoBehaviour
     {
         _healthBase.OnKill -= OnPlayerKilled;
 
-        animator.SetTrigger(triggerDeath);
+        animator.SetTrigger(soPlayerSetup.triggerDeath);
     }
 
     private void Update()
@@ -57,12 +41,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            _currentSpeed = speedRun;
+            _currentSpeed = soPlayerSetup.speedRun;
             animator.speed = 2;
         }
         else
         {
-            _currentSpeed = speed;
+            _currentSpeed = soPlayerSetup.speed;
             animator.speed = 1;
         }
 
@@ -71,31 +55,31 @@ public class Player : MonoBehaviour
             mRigidbody.linearVelocity = new Vector2(-_currentSpeed, mRigidbody.linearVelocity.y);
             if (mRigidbody.transform.localScale.x != -1)
             {
-                mRigidbody.transform.DOScaleX(-1, playerSwipeDuration);
+                mRigidbody.transform.DOScaleX(-1, soPlayerSetup.playerSwipeDuration);
             }
-            animator.SetBool(boolrun, true);
+            animator.SetBool(soPlayerSetup.boolrun, true);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             mRigidbody.linearVelocity = new Vector2(_currentSpeed, mRigidbody.linearVelocity.y);
             if (mRigidbody.transform.localScale.x != 1)
             {
-                mRigidbody.transform.DOScaleX(1, playerSwipeDuration);
+                mRigidbody.transform.DOScaleX(1, soPlayerSetup.playerSwipeDuration);
             }
-            animator.SetBool(boolrun, true);
+            animator.SetBool(soPlayerSetup.boolrun, true);
         }
         else
         {
-            animator.SetBool(boolrun, false);
+            animator.SetBool(soPlayerSetup.boolrun, false);
         }
 
         if (mRigidbody.linearVelocity.x > 0)
         {
-            mRigidbody.linearVelocity += friction;
+            mRigidbody.linearVelocity += soPlayerSetup.friction;
         }
         else if (mRigidbody.linearVelocity.x < 0)
         {
-            mRigidbody.linearVelocity -= friction;
+            mRigidbody.linearVelocity -= soPlayerSetup.friction;
         }
     }
 
@@ -103,7 +87,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            mRigidbody.linearVelocity = Vector2.up * jumpForce;
+            mRigidbody.linearVelocity = Vector2.up * soPlayerSetup.jumpForce;
             mRigidbody.transform.localScale = Vector2.one;
             DOTween.Kill(mRigidbody.transform);
             HandleScaleJump();
@@ -112,8 +96,8 @@ public class Player : MonoBehaviour
 
     private void HandleScaleJump()
     {
-        mRigidbody.transform.DOScaleY(jumpScaleY.Value, soAnimationDuration.Value).SetLoops(2, LoopType.Yoyo).SetEase(ease);
-        mRigidbody.transform.DOScaleX(jumpScaleX.Value, soAnimationDuration.Value).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+        mRigidbody.transform.DOScaleY(soPlayerSetup.jumpScaleY, soPlayerSetup.animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(soPlayerSetup.ease);
+        mRigidbody.transform.DOScaleX(soPlayerSetup.jumpScaleX, soPlayerSetup.animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(soPlayerSetup.ease);
     }
 
     public void DestroyMe()

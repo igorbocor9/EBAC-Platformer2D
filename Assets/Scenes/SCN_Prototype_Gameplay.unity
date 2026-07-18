@@ -5123,18 +5123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   mRigidbody: {fileID: 1711591631}
   _healthBase: {fileID: 1711591636}
-  friction: {x: -0.3, y: 0}
-  speed: 10
-  speedRun: 15
-  jumpForce: 19
-  jumpScaleY: {fileID: 11400000, guid: e4a70dd98af31d94185aee7be0f38f04, type: 2}
-  jumpScaleX: {fileID: 11400000, guid: 788935d4199851a4a9564eb583a793c8, type: 2}
-  soAnimationDuration: {fileID: 11400000, guid: 4cc6e0365fe6b554fa64a28324ea91fb, type: 2}
-  ease: 27
-  boolrun: Run
-  triggerDeath: Death
+  soPlayerSetup: {fileID: 11400000, guid: 4631986e9cda003409846c2e7442df5b, type: 2}
   animator: {fileID: 1666781957}
-  playerSwipeDuration: 0.1
 --- !u!114 &1711591636
 MonoBehaviour:
   m_ObjectHideFlags: 0
