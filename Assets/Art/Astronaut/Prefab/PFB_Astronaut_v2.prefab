@@ -967,7 +967,7 @@ GameObject:
   - component: {fileID: 6413013834153556191}
   - component: {fileID: 5048413266252131355}
   m_Layer: 0
-  m_Name: PFB_Astronaut
+  m_Name: PFB_Astronaut_v2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

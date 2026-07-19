@@ -13,7 +13,8 @@ public class Player : MonoBehaviour
 
     private float _currentSpeed;
 
-    public Animator animator;
+    //public Animator animator;
+    private Animator _currentPlayer;
 
     private void Awake()
     {;
@@ -21,13 +22,15 @@ public class Player : MonoBehaviour
         {
             _healthBase.OnKill += OnPlayerKilled;
         }
+
+        _currentPlayer = Instantiate(soPlayerSetup.player, transform);
     }
 
     private void OnPlayerKilled()
     {
         _healthBase.OnKill -= OnPlayerKilled;
 
-        animator.SetTrigger(soPlayerSetup.triggerDeath);
+        _currentPlayer.SetTrigger(soPlayerSetup.triggerDeath);
     }
 
     private void Update()
@@ -42,12 +45,12 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftControl))
         {
             _currentSpeed = soPlayerSetup.speedRun;
-            animator.speed = 2;
+            _currentPlayer.speed = 2;
         }
         else
         {
             _currentSpeed = soPlayerSetup.speed;
-            animator.speed = 1;
+            _currentPlayer.speed = 1;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -57,7 +60,7 @@ public class Player : MonoBehaviour
             {
                 mRigidbody.transform.DOScaleX(-1, soPlayerSetup.playerSwipeDuration);
             }
-            animator.SetBool(soPlayerSetup.boolrun, true);
+            _currentPlayer.SetBool(soPlayerSetup.boolrun, true);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -66,11 +69,11 @@ public class Player : MonoBehaviour
             {
                 mRigidbody.transform.DOScaleX(1, soPlayerSetup.playerSwipeDuration);
             }
-            animator.SetBool(soPlayerSetup.boolrun, true);
+            _currentPlayer.SetBool(soPlayerSetup.boolrun, true);
         }
         else
         {
-            animator.SetBool(soPlayerSetup.boolrun, false);
+            _currentPlayer.SetBool(soPlayerSetup.boolrun, false);
         }
 
         if (mRigidbody.linearVelocity.x > 0)
