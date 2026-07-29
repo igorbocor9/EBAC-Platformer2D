@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     [Header("Setup")]
     public SOPlayerSetup soPlayerSetup;
 
+    public GameObject endGameUI;
+
     private float _currentSpeed;
 
     //public Animator animator;
@@ -47,6 +49,13 @@ public class Player : MonoBehaviour
         _healthBase.OnKill -= OnPlayerKilled;
 
         _currentPlayer.SetTrigger(soPlayerSetup.triggerDeath);
+
+        CallEndGame();
+    }
+
+    public void CallEndGame()
+    {
+        endGameUI.SetActive(true);
     }
 
     private void Update()

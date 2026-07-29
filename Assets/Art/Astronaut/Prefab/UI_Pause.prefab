@@ -342,6 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1816970218129073177}
   - component: {fileID: 3809163818108431590}
+  - component: {fileID: 8689608356526291463}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -415,13 +416,39 @@ MonoBehaviour:
   m_FillRect: {fileID: 1985004315892920362}
   m_HandleRect: {fileID: 7532817282772447784}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AudioChangeVolume, Assembly-CSharp
+        m_MethodName: ChangeValue
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8689608356526291463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804186183539588652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed197a0e022119c45846ca03bd1f43c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioChangeVolume
+  Group: {fileID: 24100000, guid: a68f73936499cd746be25db0f23fa3e5, type: 2}
+  floatparam: Ambiance
 --- !u!1 &2236727031954494667
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3097398727542854627}
   - component: {fileID: 2691417035045832850}
+  - component: {fileID: 2439058791932587883}
   m_Layer: 5
   m_Name: Slider (1)
   m_TagString: Untagged
@@ -580,13 +608,39 @@ MonoBehaviour:
   m_FillRect: {fileID: 2054269518542094746}
   m_HandleRect: {fileID: 4525791452972048431}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2439058791932587883}
+        m_TargetAssemblyTypeName: AudioChangeVolume, Assembly-CSharp
+        m_MethodName: ChangeValue
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2439058791932587883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2345509341022721631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed197a0e022119c45846ca03bd1f43c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioChangeVolume
+  Group: {fileID: 24100000, guid: a68f73936499cd746be25db0f23fa3e5, type: 2}
+  floatparam: SFX
 --- !u!1 &3065384122027860224
 GameObject:
   m_ObjectHideFlags: 0

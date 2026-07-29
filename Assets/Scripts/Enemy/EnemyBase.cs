@@ -10,6 +10,9 @@ public class EnemyBase : MonoBehaviour
 
     public HealthBase healthBase;
 
+    [Header("Sounds")]
+    public AudioSource audioSource;
+
     public float timeToDestroy = 1f;
 
     private void Awake()
@@ -25,6 +28,10 @@ public class EnemyBase : MonoBehaviour
         healthBase.OnKill -= OnEnemyKilled;
         PlayKillAnimation();
         Destroy(gameObject, timeToDestroy);
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
